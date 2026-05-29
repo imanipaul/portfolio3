@@ -1,65 +1,200 @@
-import Image from "next/image";
+import { experience, clientWork, projects, social } from "@/config/site";
+import { Section } from "@/components/Section";
+import { ExperienceCard } from "@/components/ExperienceCard";
+import { ProjectCard } from "@/components/ProjectCard";
+import { FadeUp } from "@/components/FadeUp";
 
 export default function Home() {
   return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
+    <>
+      {/* ABOUT */}
+      <Section id="about" title="About">
+        <div
+          className="stagger"
+          style={{ fontSize: "14px", lineHeight: 1.85, color: "var(--text-secondary)" }}
+        >
+          <FadeUp>
+            <p style={{ marginBottom: "14px" }}>
+              Hi! I&apos;m Imani, a software engineer based in New York. I enjoy
+              building things that improve people&apos;s lives — whether that&apos;s for
+              an internal client or the end user, I bridge the gap between
+              technical challenges and business needs.
+            </p>
+          </FadeUp>
+          <FadeUp>
+            <p style={{ marginBottom: "14px" }}>
+              Most recently I was part of the{" "}
+              <a href="#" style={{ color: "var(--accent)", textDecoration: "none" }}>
+                SNKRS Web team at S23NYC
+              </a>
+              , Nike&apos;s New York Studio, where I built and maintained web
+              experiences serving millions of sneaker enthusiasts globally.
+            </p>
+          </FadeUp>
+          <FadeUp>
+            <p>
+              When I&apos;m not at my computer, I enjoy reading sci-fi novels,
+              knitting scarves and blankets for friends and family, and baking
+              sweets.
+            </p>
+          </FadeUp>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+      </Section>
+
+      {/* EXPERIENCE */}
+      <Section id="experience" title="Experience">
+        <div className="stagger">
+          {experience.map((exp) => (
+            <FadeUp key={exp.title}>
+              <ExperienceCard experience={exp} />
+            </FadeUp>
+          ))}
+          <FadeUp>
+            <a
+              href={social.resume}
+              className="resume-link"
+              style={{
+                marginTop: "14px",
+                fontSize: "12px",
+                color: "var(--accent)",
+                fontFamily: "var(--font-dm-mono)",
+                display: "inline-flex",
+                alignItems: "center",
+                gap: "6px",
+                textDecoration: "none",
+              }}
+            >
+              View full résumé ↗
+            </a>
+          </FadeUp>
         </div>
-      </main>
-    </div>
+      </Section>
+
+      {/* CLIENT WORK */}
+      <Section id="work" title="Client work">
+        <div
+          style={{
+            fontSize: "10px",
+            fontFamily: "var(--font-dm-mono)",
+            color: "var(--accent)",
+            letterSpacing: "0.08em",
+            textTransform: "uppercase",
+            border: "0.5px solid var(--accent-dim)",
+            padding: "2px 8px",
+            borderRadius: "20px",
+            display: "inline-block",
+            marginBottom: "12px",
+          }}
+        >
+          Featured
+        </div>
+        <div className="stagger">
+          {clientWork.map((proj) => (
+            <FadeUp key={proj.title}>
+              <ProjectCard project={proj} />
+            </FadeUp>
+          ))}
+        </div>
+      </Section>
+
+      {/* PERSONAL PROJECTS */}
+      <Section id="projects" title="Projects">
+        <div style={{ display: "flex", gap: "6px", marginBottom: "14px" }}>
+          <div
+            style={{
+              fontSize: "11px",
+              padding: "5px 14px",
+              borderRadius: "20px",
+              border: "0.5px solid var(--border-mid)",
+              color: "var(--text-primary)",
+              fontFamily: "var(--font-dm-mono)",
+              background: "var(--bg-surface)",
+            }}
+          >
+            All
+          </div>
+          <div
+            style={{
+              fontSize: "11px",
+              padding: "5px 14px",
+              borderRadius: "20px",
+              border: "0.5px solid var(--border)",
+              color: "var(--text-muted)",
+              fontFamily: "var(--font-dm-mono)",
+              cursor: "pointer",
+            }}
+          >
+            Open source
+          </div>
+        </div>
+        <div className="stagger">
+          {projects.map((proj) => (
+            <FadeUp key={proj.title}>
+              <ProjectCard project={proj} />
+            </FadeUp>
+          ))}
+        </div>
+      </Section>
+
+      {/* CONTACT */}
+      <Section id="contact" title="Get in touch">
+        <div className="stagger">
+          <FadeUp>
+            <p
+              style={{
+                fontSize: "14px",
+                lineHeight: 1.85,
+                color: "var(--text-secondary)",
+                marginBottom: "22px",
+                maxWidth: "440px",
+              }}
+            >
+              Whether you have a role in mind, a project to discuss, or just
+              want to say hello — my inbox is always open. I&apos;ll get back to you.
+            </p>
+          </FadeUp>
+          <FadeUp>
+            <a
+              href={social.email}
+              className="contact-btn"
+              style={{
+                display: "inline-flex",
+                alignItems: "center",
+                gap: "8px",
+                fontSize: "13px",
+                color: "var(--accent)",
+                border: "0.5px solid var(--accent)",
+                padding: "10px 22px",
+                borderRadius: "5px",
+                fontFamily: "var(--font-dm-mono)",
+                cursor: "pointer",
+                transition: "background 0.2s",
+                textDecoration: "none",
+              }}
+            >
+              Say Hello{" "}
+              <span
+                className="contact-arrow"
+                style={{ transition: "transform 0.15s", display: "inline-block" }}
+              >
+                ↗
+              </span>
+            </a>
+          </FadeUp>
+          <FadeUp>
+            <div
+              style={{
+                marginTop: "48px",
+                fontSize: "11px",
+                color: "var(--text-muted)",
+                fontFamily: "var(--font-dm-mono)",
+              }}
+            >
+              Designed &amp; developed by Imani Paul · Built with Next.js &amp; Tailwind · © 2026
+            </div>
+          </FadeUp>
+        </div>
+      </Section>
+    </>
   );
 }

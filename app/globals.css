@@ -1,26 +1,208 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --bg: #0e0b18;
+  --bg-surface: #16112a;
+  --bg-hover: #1e1735;
+  --border: #2a1f48;
+  --border-mid: #3d2f6a;
+  --text-primary: #ede8fc;
+  --text-secondary: #7c6fa0;
+  --text-muted: #3d3260;
+  --accent: #b07ef8;
+  --accent-dim: rgba(124, 58, 237, 0.267);
+  --accent-tag-bg: #25174a;
+  --green: #4ade80;
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-background: var(--bg);
+  --color-foreground: var(--text-primary);
+  --font-sans: var(--font-dm-sans);
+  --font-mono: var(--font-dm-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
+html { scroll-behavior: smooth; }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--bg);
+  color: var(--text-secondary);
+  font-family: var(--font-dm-sans), sans-serif;
+  font-size: 14px;
+  line-height: 1.7;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* ── Keyframes ── */
+@keyframes sidebarIn {
+  from { opacity: 0; transform: translateX(-12px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(10px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes fadeIn {
+  to { opacity: 1; }
+}
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0.4; }
+}
+
+/* ── Layout ── */
+.site-layout {
+  display: flex;
+  min-height: 100vh;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.sidebar {
+  width: 280px;
+  flex-shrink: 0;
+  padding: 56px 32px 56px 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  border-right: 0.5px solid var(--border);
+  opacity: 0;
+  transform: translateX(-12px);
+  animation: sidebarIn 0.5s ease forwards;
+}
+
+.main-panel {
+  flex: 1;
+  padding: 56px 52px 80px 52px;
+  max-width: 680px;
+}
+
+/* ── Sections ── */
+.section { margin-bottom: 80px; }
+
+.section-label {
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  font-family: var(--font-dm-mono), monospace;
+  margin-bottom: 24px;
+  padding-bottom: 10px;
+  border-bottom: 0.5px solid var(--border);
+}
+
+/* ── Tags ── */
+.tags { display: flex; flex-wrap: wrap; gap: 6px; }
+
+.tag {
+  font-size: 11px;
+  padding: 3px 11px;
+  border-radius: 20px;
+  background: var(--accent-tag-bg);
+  color: var(--accent);
+  font-family: var(--font-dm-mono), monospace;
+  letter-spacing: 0.02em;
+  transition: background 0.2s;
+}
+
+/* ── Experience rows ── */
+.exp-item {
+  display: flex;
+  gap: 20px;
+  padding: 16px;
+  border-radius: 10px;
+  border: 0.5px solid transparent;
+  margin-bottom: 4px;
+  text-decoration: none;
+  color: inherit;
+  transition: background 0.2s, border-color 0.2s, transform 0.2s;
+}
+.exp-item:hover {
+  background: var(--bg-hover);
+  border-color: var(--border);
+  transform: translateY(-2px);
+}
+.exp-item:hover .exp-title  { color: var(--accent); }
+.exp-item:hover .exp-arrow  { transform: translate(3px, -3px); color: var(--accent) !important; }
+.exp-item:hover .tag        { background: #3b2060; }
+.exp-metric::before { content: '▸'; font-size: 10px; }
+
+/* ── Project rows ── */
+.proj-item {
+  display: flex;
+  gap: 16px;
+  padding: 16px;
+  border-radius: 10px;
+  border: 0.5px solid transparent;
+  margin-bottom: 4px;
+  text-decoration: none;
+  color: inherit;
+  transition: background 0.2s, border-color 0.2s, transform 0.2s;
+}
+.proj-item:hover {
+  background: var(--bg-hover);
+  border-color: var(--border);
+  transform: translateY(-2px);
+}
+.proj-item:hover .proj-title { color: var(--accent); }
+.proj-item:hover .exp-arrow  { transform: translate(3px, -3px); color: var(--accent) !important; }
+.proj-item:hover .tag        { background: #3b2060; }
+
+/* ── Sidebar interactive elements ── */
+.resume-btn:hover {
+  background: var(--accent-dim) !important;
+  border-color: var(--accent) !important;
+}
+.social-icon:hover {
+  border-color: var(--accent) !important;
+  color: var(--accent) !important;
+  transform: translateY(-2px);
+}
+
+/* ── Resume link in experience ── */
+.resume-link { transition: gap 0.15s; }
+.resume-link:hover { gap: 10px !important; }
+
+/* ── Contact button ── */
+.contact-btn:hover { background: var(--accent-dim); }
+.contact-btn:hover .contact-arrow { transform: translate(3px, -3px); }
+
+/* ── Scroll fade-up ── */
+.fade-up {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.55s ease, transform 0.55s ease;
+}
+.fade-up.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+.stagger > .fade-up:nth-child(1) { transition-delay: 0.0s; }
+.stagger > .fade-up:nth-child(2) { transition-delay: 0.1s; }
+.stagger > .fade-up:nth-child(3) { transition-delay: 0.2s; }
+.stagger > .fade-up:nth-child(4) { transition-delay: 0.3s; }
+.stagger > .fade-up:nth-child(5) { transition-delay: 0.4s; }
+
+/* ── Focus ── */
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+
+/* ── Mobile ── */
+@media (max-width: 768px) {
+  .site-layout { flex-direction: column; }
+  .sidebar {
+    position: static;
+    height: auto;
+    width: 100%;
+    padding: 32px 24px;
+    border-right: none;
+    border-bottom: 0.5px solid var(--border);
+  }
+  .main-panel { padding: 32px 24px; }
 }
