@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { motion } from "framer-motion";
 import { navLinks } from "@/config/site";
 
 export function Nav() {
@@ -8,15 +9,12 @@ export function Nav() {
   const [hovered, setHovered] = useState<string | null>(null);
 
   return (
-    <nav
+    <motion.nav
       aria-label="Main navigation"
-      style={{
-        display: "flex",
-        flexDirection: "column",
-        gap: "2px",
-        opacity: 0,
-        animation: "fadeUp 0.5s ease 0.45s forwards",
-      }}
+      initial={{ opacity: 0, y: 10 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.5, ease: "easeOut", delay: 0.55 }}
+      style={{ display: "flex", flexDirection: "column", gap: "2px" }}
     >
       {navLinks.map(({ href, label }) => {
         const isActive = active === href;
@@ -49,19 +47,15 @@ export function Nav() {
               transition: "color 0.2s",
             }}
           >
-            <div
-              style={{
-                height: "1px",
-                width: `${lineWidth}px`,
-                background: lineBg,
-                transition: "width 0.25s ease, background 0.25s ease",
-                flexShrink: 0,
-              }}
+            <motion.div
+              animate={{ width: lineWidth, background: lineBg }}
+              transition={{ duration: 0.25, ease: "easeOut" }}
+              style={{ height: "1px", flexShrink: 0 }}
             />
             {label}
           </a>
         );
       })}
-    </nav>
+    </motion.nav>
   );
 }

@@ -3,16 +3,14 @@ import { Section } from "@/components/Section";
 import { ExperienceCard } from "@/components/ExperienceCard";
 import { ProjectCard } from "@/components/ProjectCard";
 import { FadeUp } from "@/components/FadeUp";
+import { FadeUpGroup } from "@/components/FadeUpGroup";
 
 export default function Home() {
   return (
     <>
       {/* ABOUT */}
       <Section id="about" title="About">
-        <div
-          className="stagger"
-          style={{ fontSize: "14px", lineHeight: 1.85, color: "var(--text-secondary)" }}
-        >
+        <FadeUpGroup style={{ fontSize: "14px", lineHeight: 1.85, color: "var(--text-secondary)" }}>
           <FadeUp>
             <p style={{ marginBottom: "14px" }}>
               Hi! I&apos;m Imani, a software engineer based in New York. I enjoy
@@ -38,12 +36,12 @@ export default function Home() {
               sweets.
             </p>
           </FadeUp>
-        </div>
+        </FadeUpGroup>
       </Section>
 
       {/* EXPERIENCE */}
       <Section id="experience" title="Experience">
-        <div className="stagger">
+        <FadeUpGroup>
           {experience.map((exp) => (
             <FadeUp key={exp.title}>
               <ExperienceCard experience={exp} />
@@ -67,7 +65,7 @@ export default function Home() {
               View full résumé ↗
             </a>
           </FadeUp>
-        </div>
+        </FadeUpGroup>
       </Section>
 
       {/* CLIENT WORK */}
@@ -88,13 +86,13 @@ export default function Home() {
         >
           Featured
         </div>
-        <div className="stagger">
+        <FadeUpGroup>
           {clientWork.map((proj) => (
             <FadeUp key={proj.title}>
               <ProjectCard project={proj} />
             </FadeUp>
           ))}
-        </div>
+        </FadeUpGroup>
       </Section>
 
       {/* PERSONAL PROJECTS */}
@@ -127,18 +125,18 @@ export default function Home() {
             Open source
           </div>
         </div>
-        <div className="stagger">
+        <FadeUpGroup>
           {projects.map((proj) => (
             <FadeUp key={proj.title}>
               <ProjectCard project={proj} />
             </FadeUp>
           ))}
-        </div>
+        </FadeUpGroup>
       </Section>
 
       {/* CONTACT */}
       <Section id="contact" title="Get in touch">
-        <div className="stagger">
+        <FadeUpGroup>
           <FadeUp>
             <p
               style={{
@@ -193,7 +191,7 @@ export default function Home() {
               Designed &amp; developed by Imani Paul · Built with Next.js &amp; Tailwind · © 2026
             </div>
           </FadeUp>
-        </div>
+        </FadeUpGroup>
       </Section>
     </>
   );

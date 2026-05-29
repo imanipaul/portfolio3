@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { DM_Sans, DM_Mono } from "next/font/google";
 import "./globals.css";
+import { SidebarWrapper } from "@/components/SidebarWrapper";
 import { Header } from "@/components/Header";
 import { Nav } from "@/components/Nav";
 import { PanelFooter } from "@/components/PanelFooter";
@@ -32,13 +33,13 @@ export default function RootLayout({
     <html lang="en">
       <body className={`${dmSans.variable} ${dmMono.variable} antialiased`}>
         <div className="site-layout">
-          <aside className="sidebar">
+          <SidebarWrapper>
             <div>
               <Header />
               <Nav />
             </div>
             <PanelFooter />
-          </aside>
+          </SidebarWrapper>
           <main className="main-panel">{children}</main>
         </div>
       </body>

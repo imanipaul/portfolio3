@@ -1,3 +1,6 @@
+"use client";
+
+import { motion } from "framer-motion";
 import { social } from "@/config/site";
 
 const socials = [
@@ -8,14 +11,11 @@ const socials = [
 
 export function PanelFooter() {
   return (
-    <div
-      style={{
-        display: "flex",
-        flexDirection: "column",
-        gap: "16px",
-        opacity: 0,
-        animation: "fadeIn 0.5s ease 0.6s forwards",
-      }}
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 0.5, ease: "easeOut", delay: 0.75 }}
+      style={{ display: "flex", flexDirection: "column", gap: "16px" }}
     >
       <a
         href={social.resume}
@@ -68,6 +68,6 @@ export function PanelFooter() {
           </a>
         ))}
       </div>
-    </div>
+    </motion.div>
   );
 }
