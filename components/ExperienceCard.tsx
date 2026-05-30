@@ -66,7 +66,7 @@ export function ExperienceCard({ experience }: { experience: ExperienceConfig })
         <div
           style={{
             fontSize: "13px",
-            color: "var(--text-muted)",
+            color: "var(--text-secondary)",
             lineHeight: 1.7,
             marginBottom: "10px",
           }}

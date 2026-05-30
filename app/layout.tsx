@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { DM_Sans, DM_Mono } from "next/font/google";
 import "./globals.css";
+import { AppShell } from "@/components/AppShell";
 import { SidebarWrapper } from "@/components/SidebarWrapper";
 import { Header } from "@/components/Header";
 import { Nav } from "@/components/Nav";
@@ -30,8 +31,9 @@ export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en">
+    <html lang="en" data-theme="dark">
       <body className={`${dmSans.variable} ${dmMono.variable} antialiased`}>
+        <AppShell />
         <div className="site-layout">
           <SidebarWrapper>
             <div>

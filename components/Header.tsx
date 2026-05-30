@@ -15,7 +15,7 @@ const item = {
 export function Header() {
   return (
     <motion.div variants={container} initial="hidden" animate="show">
-      {/* Status */}
+      {/* Status — green pulsing dot */}
       <motion.div
         variants={item}
         style={{
@@ -26,7 +26,7 @@ export function Header() {
           color: "var(--green)",
           fontFamily: "var(--font-dm-mono)",
           letterSpacing: "0.04em",
-          marginBottom: "18px",
+          marginBottom: "22px",
         }}
       >
         <motion.div
@@ -48,12 +48,13 @@ export function Header() {
       <motion.div
         variants={item}
         style={{
-          fontSize: "26px",
+          fontSize: "30px",
           fontWeight: 500,
           color: "var(--text-primary)",
           letterSpacing: "-0.02em",
           lineHeight: 1.1,
-          marginBottom: "6px",
+          marginBottom: "8px",
+          transition: "color 0.3s",
         }}
       >
         Imani Paul
@@ -67,6 +68,7 @@ export function Header() {
           color: "var(--text-secondary)",
           fontFamily: "var(--font-dm-mono)",
           marginBottom: "4px",
+          transition: "color 0.3s",
         }}
       >
         Software Engineer
@@ -80,6 +82,7 @@ export function Header() {
           color: "var(--text-muted)",
           fontFamily: "var(--font-dm-mono)",
           marginBottom: "22px",
+          transition: "color 0.3s",
         }}
       >
         Previously{" "}
@@ -92,9 +95,10 @@ export function Header() {
         style={{
           fontSize: "13px",
           lineHeight: 1.75,
-          color: "var(--text-muted)",
+          color: "var(--text-secondary)",
           maxWidth: "200px",
           marginBottom: "36px",
+          transition: "color 0.3s",
         }}
       >
         I build accessible, pixel-perfect digital experiences that bridge

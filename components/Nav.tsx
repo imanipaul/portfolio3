@@ -16,11 +16,10 @@ export function Nav() {
       transition={{ duration: 0.5, ease: "easeOut", delay: 0.55 }}
       style={{ display: "flex", flexDirection: "column", gap: "2px" }}
     >
-      {navLinks.map(({ href, label }) => {
+      {navLinks.map(({ href, label }, index) => {
         const isActive = active === href;
         const isHovered = hovered === href;
-        const lineWidth = isActive ? 40 : isHovered ? 30 : 20;
-        const lineBg = isActive ? "var(--accent)" : "var(--border-mid)";
+        const num = String(index + 1).padStart(2, "0");
 
         return (
           <a
@@ -32,26 +31,37 @@ export function Nav() {
             style={{
               display: "flex",
               alignItems: "center",
-              gap: "14px",
-              padding: "6px 0",
+              gap: "12px",
+              padding: "7px 0",
               textDecoration: "none",
               color: isActive
                 ? "var(--text-primary)"
                 : isHovered
                 ? "var(--text-secondary)"
                 : "var(--text-muted)",
-              fontSize: "12px",
-              letterSpacing: "0.08em",
+              fontSize: "11px",
+              letterSpacing: "0.1em",
               textTransform: "uppercase",
               fontFamily: "var(--font-dm-mono)",
               transition: "color 0.2s",
             }}
           >
-            <motion.div
-              animate={{ width: lineWidth, background: lineBg }}
-              transition={{ duration: 0.25, ease: "easeOut" }}
-              style={{ height: "1px", flexShrink: 0 }}
-            />
+            <span
+              style={{
+                fontSize: "10px",
+                fontFamily: "var(--font-dm-mono)",
+                color: isActive
+                  ? "var(--accent)"
+                  : isHovered
+                  ? "var(--text-muted)"
+                  : "var(--border-mid)",
+                transition: "color 0.2s",
+                flexShrink: 0,
+                letterSpacing: "0.05em",
+              }}
+            >
+              {num}
+            </span>
             {label}
           </a>
         );

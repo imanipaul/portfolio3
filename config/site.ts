@@ -14,6 +14,8 @@ export interface ProjectConfig {
   emoji?: string;
   link?: string;
   github?: string;
+  featured?: boolean;
+  featuredBadge?: string;
 }
 
 export const navLinks = [
@@ -31,14 +33,23 @@ export const experience: ExperienceConfig[] = [
     metric: "SNKRS Web · 10M+ monthly active users",
     description:
       "Built and maintained web experiences for the SNKRS platform at Nike's New York Studio. Bridged technical implementation with business and creative needs across client and end-user products.",
-    tech: ["React", "GraphQL", "Node", "TypeScript", "AWS"],
+    tech: ["React", "GraphQL", "TypeScript", "Node", "AWS"],
+    link: "#",
+  },
+  {
+    title: "Software Engineer · Nike PME",
+    years: "2024 — 2025",
+    metric: "Nike.net order orchestration · B2B wholesale platform",
+    description:
+      "Primary author of micro-frontend order management tools for Nike's wholesale B2B platform. Delivered campaigns grid, at-once cart, and all-orders MFEs end-to-end — including drag-and-drop reordering, coupon validation, Redux Toolkit state management, and sales-rep partner ID flows.",
+    tech: ["React", "Redux Toolkit", "MFE", "TypeScript", "Podium EDS"],
     link: "#",
   },
   {
     title: "Software Engineer · S23NYC",
     years: "2019 — 2021",
     description:
-      "Developed client-facing web projects for brands including AT&T, John Hancock, HSBC, and Courageous Studios. Specialized in responsive, animation-rich React applications.",
+      "Built client-facing web projects for AT&T, John Hancock, HSBC, and Courageous Studios. Specialized in responsive, animation-rich React applications.",
     tech: ["React", "Sass", "CSS Animations", "Vanilla JS"],
     link: "#",
   },
@@ -56,7 +67,7 @@ export const clientWork: ProjectConfig[] = [
   {
     title: "John Hancock Hub",
     description:
-      "Responsive suite of pages including full-width video, articles, and custom infographic. Built for scale and accessibility.",
+      "Responsive suite of pages with full-width video, articles, and a custom infographic. Built for scale and accessibility.",
     tech: ["React.js", "CSS Animations", "Infographic"],
     emoji: "💼",
     link: "#",
@@ -64,7 +75,7 @@ export const clientWork: ProjectConfig[] = [
   {
     title: "AT&T Forces of Change",
     description:
-      "Responsive landing page for the Forces of Change video series. Continuously updated as new content was released.",
+      "Responsive landing page for the Forces of Change video series, continuously updated as new content launched.",
     tech: ["React.js", "Sass"],
     emoji: "📡",
     link: "#",
@@ -72,7 +83,7 @@ export const clientWork: ProjectConfig[] = [
   {
     title: "HSBC Articles",
     description:
-      "Suite of responsive pages including two articles and a white paper. Custom image slideshow, parallax header, embedded video.",
+      "Suite of responsive campaign pages with custom image slideshow, parallax header, and embedded video.",
     tech: ["React.js", "Parallax"],
     emoji: "🏦",
     link: "#",
@@ -80,6 +91,24 @@ export const clientWork: ProjectConfig[] = [
 ];
 
 export const projects: ProjectConfig[] = [
+  {
+    title: "Forme Storefront",
+    description:
+      "A fully designed consumer e-commerce storefront — homepage with featured product hero, filterable product grid, product detail page with size/color selectors, and collection pages. Built to mirror production-grade shopping UX.",
+    tech: ["Next.js", "React", "TypeScript", "CSS Modules", "Vercel"],
+    emoji: "🛍️",
+    link: "#",
+    featured: true,
+    featuredBadge: "⭐ Featured · Live demo ↗",
+  },
+  {
+    title: "scrobble.stats",
+    description:
+      "Personal listening habit dashboard built on the Last.fm API. Surfaces top artists, albums, and tracks across five time ranges with a client-side trend chart derived from scrobble history — no backend required.",
+    tech: ["React 18", "Chart.js", "Last.fm API", "CSS Custom Props"],
+    emoji: "🎵",
+    link: "#",
+  },
   {
     title: "Speed Type",
     description: "Single-player speed typing game with multiple difficulty levels.",
@@ -98,7 +127,7 @@ export const projects: ProjectConfig[] = [
     title: "All Things Music",
     description: "Music search engine built with React and the LastFM API.",
     tech: ["React.js", "AudioDB API"],
-    emoji: "🎵",
+    emoji: "🎶",
     github: "#",
   },
 ];
@@ -106,7 +135,6 @@ export const projects: ProjectConfig[] = [
 export const social = {
   github: "https://github.com",
   linkedin: "https://linkedin.com",
-  dribbble: "#",
   email: "mailto:imani@example.com",
   resume: "#",
 };

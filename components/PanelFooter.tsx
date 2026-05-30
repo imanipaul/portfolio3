@@ -6,7 +6,7 @@ import { social } from "@/config/site";
 const socials = [
   { label: "GH", href: social.github, ariaLabel: "GitHub" },
   { label: "LI", href: social.linkedin, ariaLabel: "LinkedIn" },
-  { label: "DR", href: social.dribbble, ariaLabel: "Dribbble" },
+  { label: "EM", href: social.email, ariaLabel: "Email" },
 ];
 
 export function PanelFooter() {
@@ -40,7 +40,7 @@ export function PanelFooter() {
         View résumé <span>↗</span>
       </a>
 
-      <div style={{ display: "flex", gap: "16px", alignItems: "center" }}>
+      <div style={{ display: "flex", gap: "12px", alignItems: "center" }}>
         {socials.map(({ label, href, ariaLabel }) => (
           <a
             key={label}
@@ -58,7 +58,7 @@ export function PanelFooter() {
               alignItems: "center",
               justifyContent: "center",
               color: "var(--text-muted)",
-              fontSize: "13px",
+              fontSize: "11px",
               fontFamily: "var(--font-dm-mono)",
               textDecoration: "none",
               transition: "border-color 0.2s, color 0.2s, transform 0.2s",
