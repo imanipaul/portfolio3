@@ -2,40 +2,21 @@
 
 import { useState } from "react";
 import { navLinks, social } from "@/config/site";
+import { ThemeToggle } from "./ThemeToggle";
 
-export function AppShell() {
-  const [theme, setTheme] = useState<"dark" | "light">("dark");
+export function MobileNav() {
   const [drawerOpen, setDrawerOpen] = useState(false);
-
-  const toggleTheme = () => {
-    const next = theme === "dark" ? "light" : "dark";
-    setTheme(next);
-    document.documentElement.setAttribute("data-theme", next);
-  };
 
   const toggleDrawer = () => setDrawerOpen((prev) => !prev);
   const closeDrawer = () => setDrawerOpen(false);
 
-  const isDark = theme === "dark";
-
   return (
     <>
-      {/* Desktop Topbar */}
-      <div className="topbar">
-        <div className="topbar-left">
-          <span style={{ color: "var(--accent)" }}>✦</span>
-          <span>Imani Paul — Software Engineer</span>
-        </div>
-        <div style={{ display: "flex", alignItems: "center", gap: "10px" }}>
-          <ModeToggle isDark={isDark} onToggle={toggleTheme} />
-        </div>
-      </div>
-
       {/* Mobile Header */}
       <header className="mobile-header">
         <div className="mobile-name">Imani Paul</div>
         <div className="mobile-right">
-          <ModeToggle isDark={isDark} onToggle={toggleTheme} compact />
+          <ThemeToggle compact={true} />
           <button
             className={`hamburger${drawerOpen ? " open" : ""}`}
             onClick={toggleDrawer}
@@ -92,7 +73,13 @@ export function AppShell() {
                   gap: "12px",
                 }}
               >
-                <span style={{ fontSize: "10px", color: "var(--border-mid)", letterSpacing: "0.05em" }}>
+                <span
+                  style={{
+                    fontSize: "10px",
+                    color: "var(--border-mid)",
+                    letterSpacing: "0.05em",
+                  }}
+                >
                   {String(index + 1).padStart(2, "0")}
                 </span>
                 {label}
@@ -159,36 +146,5 @@ export function AppShell() {
         </div>
       </nav>
     </>
-  );
-}
-
-function ModeToggle({
-  isDark,
-  onToggle,
-  compact,
-}: {
-  isDark: boolean;
-  onToggle: () => void;
-  compact?: boolean;
-}) {
-  return (
-    <div
-      className="mode-toggle"
-      onClick={onToggle}
-      style={compact ? { padding: "3px 5px" } : undefined}
-    >
-      <div
-        className={`toggle-option${isDark ? " active" : ""}`}
-        style={compact ? { padding: "2px 8px" } : undefined}
-      >
-        🌙{!compact && " Dark"}
-      </div>
-      <div
-        className={`toggle-option${!isDark ? " active" : ""}`}
-        style={compact ? { padding: "2px 8px" } : undefined}
-      >
-        ☀️{!compact && " Light"}
-      </div>
-    </div>
   );
 }

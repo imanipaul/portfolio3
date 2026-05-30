@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { DM_Sans, DM_Mono } from "next/font/google";
 import "./globals.css";
-import { AppShell } from "@/components/AppShell";
+import { MobileNav } from "@/components/MobileNav";
 import { SidebarWrapper } from "@/components/SidebarWrapper";
 import { Header } from "@/components/Header";
 import { Nav } from "@/components/Nav";
@@ -23,7 +23,8 @@ export const metadata: Metadata = {
   description: "Software Engineer based in New York. Previously Nike / S23NYC.",
   openGraph: {
     title: "Imani Paul — Software Engineer",
-    description: "Software Engineer based in New York. Previously Nike / S23NYC.",
+    description:
+      "Software Engineer based in New York. Previously Nike / S23NYC.",
   },
 };
 
@@ -33,7 +34,7 @@ export default function RootLayout({
   return (
     <html lang="en" data-theme="dark">
       <body className={`${dmSans.variable} ${dmMono.variable} antialiased`}>
-        <AppShell />
+        <MobileNav />
         <div className="site-layout">
           <SidebarWrapper>
             <div>

@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { social } from "@/config/site";
+import { ThemeToggle } from "./ThemeToggle";
 
 const socials = [
   { label: "GH", href: social.github, ariaLabel: "GitHub" },
@@ -17,6 +18,7 @@ export function PanelFooter() {
       transition={{ duration: 0.5, ease: "easeOut", delay: 0.75 }}
       style={{ display: "flex", flexDirection: "column", gap: "16px" }}
     >
+      <ThemeToggle compact={false} />
       <a
         href={social.resume}
         target="_blank"
