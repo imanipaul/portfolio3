@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { DM_Sans, DM_Mono } from "next/font/google";
+import { cookies } from "next/headers";
 import "./globals.css";
 import { MobileNav } from "@/components/MobileNav";
 import { SidebarWrapper } from "@/components/SidebarWrapper";
@@ -27,11 +28,13 @@ export const metadata: Metadata = {
   },
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
+  const cookieStore = await cookies();
+  const theme = (cookieStore.get("theme")?.value as "dark" | "light") ?? "dark";
   return (
-    <html lang="en" data-theme="dark">
+    <html lang="en" data-theme={theme}>
       <body className={`${dmSans.variable} ${dmMono.variable} antialiased`}>
         <MobileNav />
         <div className="flex min-h-[calc(100vh-41px)] max-w-[1100px] mx-auto">

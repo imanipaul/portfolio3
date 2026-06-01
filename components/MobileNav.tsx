@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { navLinks, social } from "@/config/site";
 import { ThemeToggle } from "./ThemeToggle";
+import Link from "next/link";
 
 export function MobileNav() {
   const [drawerOpen, setDrawerOpen] = useState(false);
@@ -59,12 +60,12 @@ export function MobileNav() {
           </div>
         </div>
         <div className="flex items-center justify-between">
-          <a
-            href={social.resume}
+          <Link
+            href={"/resume.pdf"}
             className="inline-flex items-center gap-2 text-[12px] font-mono text-(--accent) [border:0.5px_solid_var(--accent-dim)] px-[14px] py-2 rounded-[4px] no-underline"
           >
             View résumé <span>↗</span>
-          </a>
+          </Link>
           <div className="flex gap-3 items-center">
             {[
               { label: "GH", href: social.github, aria: "GitHub" },

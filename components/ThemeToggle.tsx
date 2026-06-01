@@ -1,14 +1,21 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { setThemeCookie } from "@/app/actions/theme";
 
 export function ThemeToggle({ compact = false }: { compact: boolean }) {
   const [theme, setTheme] = useState<"dark" | "light">("dark");
 
-  const toggleTheme = () => {
+  useEffect(() => {
+    const current = document.documentElement.getAttribute("data-theme") as "dark" | "light";
+    if (current) setTheme(current);
+  }, []);
+
+  const toggleTheme = async () => {
     const next = theme === "dark" ? "light" : "dark";
     setTheme(next);
     document.documentElement.setAttribute("data-theme", next);
+    await setThemeCookie(next);
   };
 
   const isDark = theme === "dark";
