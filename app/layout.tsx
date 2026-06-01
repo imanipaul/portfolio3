@@ -21,10 +21,10 @@ const dmMono = DM_Mono({
 
 export const metadata: Metadata = {
   title: "Imani Paul — Software Engineer",
-  description: "Software Engineer based in New York. Previously Nike / S23NYC.",
+  description: "Software Engineer based in New York. Previously Nike.",
   openGraph: {
     title: "Imani Paul — Software Engineer",
-    description: "Software Engineer based in New York. Previously Nike / S23NYC.",
+    description: "Software Engineer based in New York. Previously Nike.",
   },
 };
 
