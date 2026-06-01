@@ -13,22 +13,18 @@ export function ThemeToggle({ compact = false }: { compact: boolean }) {
 
   const isDark = theme === "dark";
 
+  const optionBase = `text-[11px] font-mono text-[var(--text-muted)] rounded-[16px] transition-all duration-200 cursor-pointer flex items-center gap-[5px]${compact ? " px-2 py-[2px]" : " px-[10px] py-[3px]"}`;
+  const activeOption = "bg-[var(--accent)] !text-white";
+
   return (
     <div
-      className="mode-toggle w-fit"
+      className={`flex items-center gap-2 bg-(--toggle-bg) [border:0.5px_solid_var(--toggle-border)] rounded-[20px] cursor-pointer transition-all duration-200 w-fit hover:[border-color:var(--accent)]${compact ? " px-[5px] py-[3px]" : " px-[6px] py-[4px]"}`}
       onClick={toggleTheme}
-      style={compact ? { padding: "3px 5px" } : undefined}
     >
-      <div
-        className={`toggle-option${isDark ? " active" : ""}`}
-        style={compact ? { padding: "2px 8px" } : undefined}
-      >
+      <div className={`${optionBase}${isDark ? ` ${activeOption}` : ""}`}>
         🌙{!compact && " Dark"}
       </div>
-      <div
-        className={`toggle-option${!isDark ? " active" : ""}`}
-        style={compact ? { padding: "2px 8px" } : undefined}
-      >
+      <div className={`${optionBase}${!isDark ? ` ${activeOption}` : ""}`}>
         ☀️{!compact && " Light"}
       </div>
     </div>

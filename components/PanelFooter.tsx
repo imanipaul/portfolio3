@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { social } from "@/config/site";
 import { ThemeToggle } from "./ThemeToggle";
+import Link from "next/link";
 
 const socials = [
   { label: "GH", href: social.github, ariaLabel: "GitHub" },
@@ -16,33 +17,19 @@ export function PanelFooter() {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.5, ease: "easeOut", delay: 0.75 }}
-      style={{ display: "flex", flexDirection: "column", gap: "16px" }}
+      className="flex flex-col gap-4"
     >
       <ThemeToggle compact={false} />
-      <a
-        href={social.resume}
+      <Link
+        href={"/resume.pdf"}
         target="_blank"
         rel="noopener noreferrer"
-        className="resume-btn"
-        style={{
-          display: "inline-flex",
-          alignItems: "center",
-          gap: "8px",
-          fontSize: "12px",
-          fontFamily: "var(--font-dm-mono)",
-          color: "var(--accent)",
-          textDecoration: "none",
-          border: "0.5px solid var(--accent-dim)",
-          padding: "8px 14px",
-          borderRadius: "4px",
-          width: "fit-content",
-          transition: "background 0.2s, border-color 0.2s",
-        }}
+        className="inline-flex items-center gap-2 text-[12px] font-mono text-(--accent) no-underline [border:0.5px_solid_var(--accent-dim)] px-[14px] py-2 rounded-[4px] w-fit transition-[background,border-color] duration-200 hover:bg-(--accent-dim) hover:border-(--accent)"
       >
         View résumé <span>↗</span>
-      </a>
+      </Link>
 
-      <div style={{ display: "flex", gap: "12px", alignItems: "center" }}>
+      <div className="flex gap-3 items-center">
         {socials.map(({ label, href, ariaLabel }) => (
           <a
             key={label}
@@ -50,21 +37,7 @@ export function PanelFooter() {
             target="_blank"
             rel="noopener noreferrer"
             aria-label={ariaLabel}
-            className="social-icon"
-            style={{
-              width: "34px",
-              height: "34px",
-              borderRadius: "50%",
-              border: "0.5px solid var(--border)",
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-              color: "var(--text-muted)",
-              fontSize: "11px",
-              fontFamily: "var(--font-dm-mono)",
-              textDecoration: "none",
-              transition: "border-color 0.2s, color 0.2s, transform 0.2s",
-            }}
+            className="w-[34px] h-[34px] rounded-full [border:0.5px_solid_var(--border)] flex items-center justify-center text-(--text-muted) text-[11px] font-mono no-underline transition-[border-color,color,transform] duration-200 hover:border-(--accent) hover:text-(--accent) hover:-translate-y-0.5"
           >
             {label}
           </a>

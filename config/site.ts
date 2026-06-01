@@ -28,30 +28,30 @@ export const navLinks = [
 
 export const experience: ExperienceConfig[] = [
   {
-    title: "Software Engineer · Nike / S23NYC",
-    years: "2021 — 2024",
-    metric: "SNKRS Web · 10M+ monthly active users",
-    description:
-      "Built and maintained web experiences for the SNKRS platform at Nike's New York Studio. Bridged technical implementation with business and creative needs across client and end-user products.",
-    tech: ["React", "GraphQL", "TypeScript", "Node", "AWS"],
-    link: "#",
-  },
-  {
     title: "Software Engineer · Nike PME",
     years: "2024 — 2025",
     metric: "Nike.net order orchestration · B2B wholesale platform",
     description:
-      "Primary author of micro-frontend order management tools for Nike's wholesale B2B platform. Delivered campaigns grid, at-once cart, and all-orders MFEs end-to-end — including drag-and-drop reordering, coupon validation, Redux Toolkit state management, and sales-rep partner ID flows.",
+      "Authored micro-frontend order management tools for Nike's wholesale B2B platform. Delivered several MFEs end-to-end — including drag-and-drop reordering, coupon validation, Redux Toolkit state management, and sales-rep partner ID flows.",
     tech: ["React", "Redux Toolkit", "MFE", "TypeScript", "Podium EDS"],
-    link: "#",
+    link: "https://www.nike.com",
   },
   {
-    title: "Software Engineer · S23NYC",
+    title: "Software Engineer · Nike / S23NYC",
+    years: "2021 — 2024",
+    metric: "SNKRS Web · 10M+ monthly active users",
+    description:
+      "Built and maintained internal and client-facing web experiences for the SNKRS platform at Nike's New York Studio. Bridged technical implementation with business and creative needs across client and end-user products.",
+    tech: ["React", "GraphQL", "TypeScript", "Node", "AWS"],
+    link: "https://www.nike.com/launch",
+  },
+  {
+    title: "Web Engineer · WarnerMedia",
     years: "2019 — 2021",
     description:
-      "Built client-facing web projects for AT&T, John Hancock, HSBC, and Courageous Studios. Specialized in responsive, animation-rich React applications.",
+      "Built client-facing web ad projects at Courageous Studios, WarnerMedia's in house branded content studio. Specialized in responsive, animation-rich React applications.",
     tech: ["React", "Sass", "CSS Animations", "Vanilla JS"],
-    link: "#",
+    link: "https://www.courageousstudios.com/",
   },
 ];
 
@@ -62,7 +62,7 @@ export const clientWork: ProjectConfig[] = [
       "Showcase website for Courageous Studios' 2020 video lineup — full-bleed video, responsive layout, smooth transitions.",
     tech: ["React.js", "Sass"],
     emoji: "🎬",
-    link: "#",
+    link: "https://imanipaul.github.io/courageous-showcase-copy/",
   },
   {
     title: "John Hancock Hub",
@@ -70,7 +70,7 @@ export const clientWork: ProjectConfig[] = [
       "Responsive suite of pages with full-width video, articles, and a custom infographic. Built for scale and accessibility.",
     tech: ["React.js", "CSS Animations", "Infographic"],
     emoji: "💼",
-    link: "#",
+    link: "http://sponsorcontent.cnn.com/interactive/john-hancock/the-game-of-happy/",
   },
   {
     title: "AT&T Forces of Change",
@@ -78,7 +78,7 @@ export const clientWork: ProjectConfig[] = [
       "Responsive landing page for the Forces of Change video series, continuously updated as new content launched.",
     tech: ["React.js", "Sass"],
     emoji: "📡",
-    link: "#",
+    link: "https://www.cnn.com/interactive/ATT/ForcesOfChange/",
   },
   {
     title: "HSBC Articles",
@@ -86,7 +86,7 @@ export const clientWork: ProjectConfig[] = [
       "Suite of responsive campaign pages with custom image slideshow, parallax header, and embedded video.",
     tech: ["React.js", "Parallax"],
     emoji: "🏦",
-    link: "#",
+    link: "https://www.cnn.com/interactive/HSBC/SecuringTheWorld",
   },
 ];
 
@@ -111,30 +111,31 @@ export const projects: ProjectConfig[] = [
   },
   {
     title: "Speed Type",
-    description: "Single-player speed typing game with multiple difficulty levels.",
+    description:
+      "Single-player speed typing game with multiple difficulty levels.",
     tech: ["Vanilla JS", "HTML", "CSS"],
     emoji: "⌨️",
-    github: "#",
+    github: "https://imanipaul.github.io/speed-type/",
   },
   {
     title: "Recollect",
-    description: "Full-stack inventory management app for household essentials.",
+    description:
+      "Full-stack inventory management app for household essentials.",
     tech: ["React.js", "PostgreSQL", "Rails"],
     emoji: "🏠",
-    github: "#",
+    github: "http://recollect.surge.sh/",
   },
   {
     title: "All Things Music",
     description: "Music search engine built with React and the LastFM API.",
     tech: ["React.js", "AudioDB API"],
     emoji: "🎶",
-    github: "#",
+    github: "https://all-things-music.herokuapp.com/",
   },
 ];
 
 export const social = {
-  github: "https://github.com",
-  linkedin: "https://linkedin.com",
-  email: "mailto:imani@example.com",
-  resume: "#",
+  github: "https://github.com/imanipaul",
+  linkedin: "https://linkedin.com/in/imanipaul",
+  email: "mailto:imani.paul1@gmail.com",
 };

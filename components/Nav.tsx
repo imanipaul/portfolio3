@@ -14,7 +14,7 @@ export function Nav() {
       initial={{ opacity: 0, y: 10 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5, ease: "easeOut", delay: 0.55 }}
-      style={{ display: "flex", flexDirection: "column", gap: "2px" }}
+      className="flex flex-col gap-[2px]"
     >
       {navLinks.map(({ href, label }, index) => {
         const isActive = active === href;
@@ -28,37 +28,22 @@ export function Nav() {
             onClick={() => setActive(href)}
             onMouseEnter={() => setHovered(href)}
             onMouseLeave={() => setHovered(null)}
-            style={{
-              display: "flex",
-              alignItems: "center",
-              gap: "12px",
-              padding: "7px 0",
-              textDecoration: "none",
-              color: isActive
-                ? "var(--text-primary)"
+            className={`flex items-center gap-3 py-[7px] no-underline text-[11px] tracking-widest uppercase font-mono transition-[color] duration-200 ${
+              isActive
+                ? "text-foreground"
                 : isHovered
-                ? "var(--text-secondary)"
-                : "var(--text-muted)",
-              fontSize: "11px",
-              letterSpacing: "0.1em",
-              textTransform: "uppercase",
-              fontFamily: "var(--font-dm-mono)",
-              transition: "color 0.2s",
-            }}
+                  ? "text-(--text-secondary)"
+                  : "text-(--text-muted)"
+            }`}
           >
             <span
-              style={{
-                fontSize: "10px",
-                fontFamily: "var(--font-dm-mono)",
-                color: isActive
-                  ? "var(--accent)"
+              className={`text-[10px] font-mono transition-[color] duration-200 shrink-0 tracking-[0.05em] ${
+                isActive
+                  ? "text-(--accent)"
                   : isHovered
-                  ? "var(--text-muted)"
-                  : "var(--border-mid)",
-                transition: "color 0.2s",
-                flexShrink: 0,
-                letterSpacing: "0.05em",
-              }}
+                    ? "text-(--text-muted)"
+                    : "text-(--border-mid)"
+              }`}
             >
               {num}
             </span>

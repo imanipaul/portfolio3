@@ -4,36 +4,44 @@ import { ExperienceCard } from "@/components/ExperienceCard";
 import { ProjectCard } from "@/components/ProjectCard";
 import { FadeUp } from "@/components/FadeUp";
 import { FadeUpGroup } from "@/components/FadeUpGroup";
+import Link from "next/link";
 
 export default function Home() {
   return (
     <>
       {/* ABOUT */}
       <Section id="about" title="About">
-        <FadeUpGroup style={{ fontSize: "14px", lineHeight: 1.85, color: "var(--text-secondary)" }}>
+        <FadeUpGroup className="text-[14px] leading-[1.85] text-(--text-secondary)">
           <FadeUp>
-            <p style={{ marginBottom: "14px" }}>
-              Hi! I&apos;m Imani, a software engineer based in New York. I enjoy
-              building things that improve people&apos;s lives — whether that&apos;s for
-              an internal client or the end user, I bridge the gap between
-              technical challenges and business needs.
+            <p className="mb-[14px]">
+              Hi! I&apos;m Imani, a software engineer based in New York. I've
+              spent the last five years building web products at Nike, first as
+              part of the{" "}
+              <a
+                href="https://www.nike.com/launch"
+                className="text-(--accent) no-underline"
+              >
+                SNKRS
+              </a>{" "}
+              team delivering experiences to millions of sneaker fans globally,
+              then leading the frontend development of order management tools
+              for Nike&apos;s wholesale B2B platform.
             </p>
           </FadeUp>
           <FadeUp>
-            <p style={{ marginBottom: "14px" }}>
-              Most recently I was part of the{" "}
-              <a href="#" style={{ color: "var(--accent)", textDecoration: "none" }}>
-                SNKRS Web team at S23NYC
-              </a>
-              , Nike&apos;s New York Studio, where I built and maintained web
-              experiences serving millions of sneaker enthusiasts globally.
+            <p className="mb-[14px]">
+              I gravitate toward complex, stateful problems: real-time data
+              feeds, large-scale state management migrations, micro-frontend
+              architecture, design system adoption. But what I care about most
+              is the end result, software that works reliably and feels
+              considered, whether the person using it is a Nike wholesale sales
+              rep or a sneaker enthusiast refreshing a launch page.
             </p>
           </FadeUp>
           <FadeUp>
             <p>
-              When I&apos;m not at my computer, I enjoy reading sci-fi novels,
-              knitting scarves and blankets for friends and family, and baking
-              sweets.
+              Outside of work, I&apos;m usually reading a sci-fi novel, knitting
+              something for a friend, or testing a new baking recipe.
             </p>
           </FadeUp>
         </FadeUpGroup>
@@ -48,42 +56,19 @@ export default function Home() {
             </FadeUp>
           ))}
           <FadeUp>
-            <a
-              href={social.resume}
-              className="resume-link"
-              style={{
-                marginTop: "14px",
-                fontSize: "12px",
-                color: "var(--accent)",
-                fontFamily: "var(--font-dm-mono)",
-                display: "inline-flex",
-                alignItems: "center",
-                gap: "6px",
-                textDecoration: "none",
-              }}
+            <Link
+              href={"/resume.pdf"}
+              className="mt-[14px] text-[12px] text-(--accent) font-mono inline-flex items-center gap-[6px] no-underline transition-[gap] duration-150 hover:gap-[10px]"
             >
               View full résumé ↗
-            </a>
+            </Link>
           </FadeUp>
         </FadeUpGroup>
       </Section>
 
       {/* CLIENT WORK */}
       <Section id="work" title="Client work">
-        <div
-          style={{
-            fontSize: "10px",
-            fontFamily: "var(--font-dm-mono)",
-            color: "var(--accent)",
-            letterSpacing: "0.08em",
-            textTransform: "uppercase",
-            border: "0.5px solid var(--accent-dim)",
-            padding: "2px 8px",
-            borderRadius: "20px",
-            display: "inline-block",
-            marginBottom: "12px",
-          }}
-        >
+        <div className="text-[10px] font-mono text-(--accent) tracking-[0.08em] uppercase [border:0.5px_solid_var(--accent-dim)] px-2 py-[2px] rounded-[20px] inline-block mb-3">
           Featured
         </div>
         <FadeUpGroup>
@@ -97,34 +82,6 @@ export default function Home() {
 
       {/* PERSONAL PROJECTS */}
       <Section id="projects" title="Projects">
-        <div style={{ display: "flex", gap: "6px", marginBottom: "14px" }}>
-          <div
-            style={{
-              fontSize: "11px",
-              padding: "5px 14px",
-              borderRadius: "20px",
-              border: "0.5px solid var(--border-mid)",
-              color: "var(--text-primary)",
-              fontFamily: "var(--font-dm-mono)",
-              background: "var(--bg-surface)",
-            }}
-          >
-            All
-          </div>
-          <div
-            style={{
-              fontSize: "11px",
-              padding: "5px 14px",
-              borderRadius: "20px",
-              border: "0.5px solid var(--border)",
-              color: "var(--text-muted)",
-              fontFamily: "var(--font-dm-mono)",
-              cursor: "pointer",
-            }}
-          >
-            Open source
-          </div>
-        </div>
         <FadeUpGroup>
           {projects.map((proj) => (
             <FadeUp key={proj.title}>
@@ -138,57 +95,27 @@ export default function Home() {
       <Section id="contact" title="Get in touch">
         <FadeUpGroup>
           <FadeUp>
-            <p
-              style={{
-                fontSize: "14px",
-                lineHeight: 1.85,
-                color: "var(--text-secondary)",
-                marginBottom: "22px",
-                maxWidth: "440px",
-              }}
-            >
+            <p className="text-[14px] leading-[1.85] text-(--text-secondary) mb-[22px] max-w-[440px]">
               Whether you have a role in mind, a project to discuss, or just
-              want to say hello — my inbox is always open. I&apos;ll get back to you.
+              want to say hello — my inbox is always open. I&apos;ll get back to
+              you.
             </p>
           </FadeUp>
           <FadeUp>
             <a
               href={social.email}
-              className="contact-btn"
-              style={{
-                display: "inline-flex",
-                alignItems: "center",
-                gap: "8px",
-                fontSize: "13px",
-                color: "var(--accent)",
-                border: "0.5px solid var(--accent)",
-                padding: "10px 22px",
-                borderRadius: "5px",
-                fontFamily: "var(--font-dm-mono)",
-                cursor: "pointer",
-                transition: "background 0.2s",
-                textDecoration: "none",
-              }}
+              className="group inline-flex items-center gap-2 text-[13px] text-(--accent) [border:0.5px_solid_var(--accent)] px-[22px] py-[10px] rounded-[5px] font-mono cursor-pointer transition-[background] duration-200 no-underline hover:bg-(--accent-dim)"
             >
               Say Hello{" "}
-              <span
-                className="contact-arrow"
-                style={{ transition: "transform 0.15s", display: "inline-block" }}
-              >
+              <span className="transition-transform duration-150 inline-block group-hover:translate-x-[3px] group-hover:-translate-y-[3px]">
                 ↗
               </span>
             </a>
           </FadeUp>
           <FadeUp>
-            <div
-              style={{
-                marginTop: "48px",
-                fontSize: "11px",
-                color: "var(--text-muted)",
-                fontFamily: "var(--font-dm-mono)",
-              }}
-            >
-              Designed &amp; developed by Imani Paul · Built with Next.js &amp; Tailwind · © 2026
+            <div className="mt-[48px] text-[11px] text-(--text-muted) font-mono">
+              Designed &amp; developed by Imani Paul · Built with Next.js &amp;
+              Tailwind · © 2026
             </div>
           </FadeUp>
         </FadeUpGroup>

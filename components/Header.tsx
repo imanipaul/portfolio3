@@ -9,7 +9,11 @@ const container = {
 
 const item = {
   hidden: { opacity: 0, y: 10 },
-  show: { opacity: 1, y: 0, transition: { duration: 0.5, ease: "easeOut" as const } },
+  show: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.5, ease: "easeOut" as const },
+  },
 };
 
 export function Header() {
@@ -18,28 +22,12 @@ export function Header() {
       {/* Status — green pulsing dot */}
       <motion.div
         variants={item}
-        style={{
-          display: "inline-flex",
-          alignItems: "center",
-          gap: "7px",
-          fontSize: "11px",
-          color: "var(--green)",
-          fontFamily: "var(--font-dm-mono)",
-          letterSpacing: "0.04em",
-          marginBottom: "22px",
-        }}
+        className="inline-flex items-center gap-[7px] text-[11px] text-(--green) font-mono tracking-[0.04em] mb-[22px]"
       >
         <motion.div
           animate={{ opacity: [1, 0.4, 1] }}
           transition={{ duration: 2, ease: "easeInOut", repeat: Infinity }}
-          style={{
-            width: "7px",
-            height: "7px",
-            borderRadius: "50%",
-            background: "var(--green)",
-            boxShadow: "0 0 8px var(--green)",
-            flexShrink: 0,
-          }}
+          className="w-[7px] h-[7px] rounded-full bg-(--green) shadow-[0_0_8px_var(--green)] shrink-0"
         />
         Available for new roles
       </motion.div>
@@ -47,15 +35,7 @@ export function Header() {
       {/* Name */}
       <motion.div
         variants={item}
-        style={{
-          fontSize: "30px",
-          fontWeight: 500,
-          color: "var(--text-primary)",
-          letterSpacing: "-0.02em",
-          lineHeight: 1.1,
-          marginBottom: "8px",
-          transition: "color 0.3s",
-        }}
+        className="text-[30px] font-medium text-foreground tracking-[-0.02em] leading-[1.1] mb-2 transition-[color] duration-300"
       >
         Imani Paul
       </motion.div>
@@ -63,13 +43,7 @@ export function Header() {
       {/* Role */}
       <motion.div
         variants={item}
-        style={{
-          fontSize: "13px",
-          color: "var(--text-secondary)",
-          fontFamily: "var(--font-dm-mono)",
-          marginBottom: "4px",
-          transition: "color 0.3s",
-        }}
+        className="text-[13px] text-(--text-secondary) font-mono mb-1 transition-[color] duration-300"
       >
         Software Engineer
       </motion.div>
@@ -77,29 +51,15 @@ export function Header() {
       {/* Previous */}
       <motion.div
         variants={item}
-        style={{
-          fontSize: "12px",
-          color: "var(--text-muted)",
-          fontFamily: "var(--font-dm-mono)",
-          marginBottom: "22px",
-          transition: "color 0.3s",
-        }}
+        className="text-[12px] text-(--text-muted) font-mono mb-[22px] transition-[color] duration-300"
       >
-        Previously{" "}
-        <span style={{ color: "var(--accent)" }}>Nike / S23NYC</span>
+        Previously <span className="text-(--accent)">Nike</span>
       </motion.div>
 
       {/* Tagline */}
       <motion.div
         variants={item}
-        style={{
-          fontSize: "13px",
-          lineHeight: 1.75,
-          color: "var(--text-secondary)",
-          maxWidth: "200px",
-          marginBottom: "36px",
-          transition: "color 0.3s",
-        }}
+        className="text-[13px] leading-[1.75] text-(--text-secondary) max-w-[200px] mb-9 transition-[color] duration-300"
       >
         I build accessible, pixel-perfect digital experiences that bridge
         technical complexity and human need.

@@ -13,12 +13,14 @@ export function MobileNav() {
   return (
     <>
       {/* Mobile Header */}
-      <header className="mobile-header">
-        <div className="mobile-name">Imani Paul</div>
-        <div className="mobile-right">
+      <header className="hidden max-md:flex sticky top-0 z-99 bg-background [border-bottom:0.5px_solid_var(--border)] px-5 py-[13px] items-center justify-between transition-[background,border-color] duration-300">
+        <div className="text-[15px] font-medium text-foreground">
+          Imani Paul
+        </div>
+        <div className="flex items-center gap-[10px]">
           <ThemeToggle compact={true} />
           <button
-            className={`hamburger${drawerOpen ? " open" : ""}`}
+            className={`hamburger${drawerOpen ? " open" : ""} flex flex-col gap-[5px] cursor-pointer p-1 bg-transparent border-none`}
             onClick={toggleDrawer}
             aria-label="Toggle navigation"
           >
@@ -30,56 +32,25 @@ export function MobileNav() {
       </header>
 
       {/* Mobile Drawer */}
-      <nav className={`mobile-drawer${drawerOpen ? " open" : ""}`}>
+      <nav
+        className={`hidden max-md:flex fixed inset-0 z-98 bg-background px-7 pt-[80px] pb-10 flex-col justify-between transition-[transform,background] duration-300 ease-in-out${drawerOpen ? " translate-x-0" : " translate-x-full"}`}
+      >
         <div>
-          <div
-            style={{
-              fontSize: "12px",
-              fontFamily: "var(--font-dm-mono)",
-              color: "var(--text-muted)",
-              marginBottom: "6px",
-            }}
-          >
-            Previously{" "}
-            <span style={{ color: "var(--accent)" }}>Nike / S23NYC</span>
+          <div className="text-[12px] font-mono text-(--text-muted) mb-[6px]">
+            Previously <span className="text-(--accent)">Nike / S23NYC</span>
           </div>
-          <div
-            style={{
-              fontSize: "13px",
-              color: "var(--text-secondary)",
-              marginBottom: "28px",
-              lineHeight: 1.7,
-            }}
-          >
+          <div className="text-[13px] text-(--text-secondary) mb-7 leading-[1.7]">
             I build accessible, pixel-perfect digital experiences.
           </div>
-          <div style={{ display: "flex", flexDirection: "column" }}>
+          <div className="flex flex-col">
             {navLinks.map(({ href, label }, index) => (
               <a
                 key={href}
                 href={href}
                 onClick={closeDrawer}
-                style={{
-                  fontSize: "14px",
-                  padding: "14px 0",
-                  borderBottom: "0.5px solid var(--border)",
-                  letterSpacing: "0.06em",
-                  textTransform: "uppercase",
-                  fontFamily: "var(--font-dm-mono)",
-                  color: "var(--text-muted)",
-                  textDecoration: "none",
-                  display: "flex",
-                  alignItems: "center",
-                  gap: "12px",
-                }}
+                className="text-[14px] py-[14px] [border-bottom:0.5px_solid_var(--border)] tracking-[0.06em] uppercase font-mono text-(--text-muted) no-underline flex items-center gap-3"
               >
-                <span
-                  style={{
-                    fontSize: "10px",
-                    color: "var(--border-mid)",
-                    letterSpacing: "0.05em",
-                  }}
-                >
+                <span className="text-[10px] text-(--border-mid) tracking-[0.05em]">
                   {String(index + 1).padStart(2, "0")}
                 </span>
                 {label}
@@ -87,31 +58,14 @@ export function MobileNav() {
             ))}
           </div>
         </div>
-        <div
-          style={{
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "space-between",
-          }}
-        >
+        <div className="flex items-center justify-between">
           <a
             href={social.resume}
-            style={{
-              display: "inline-flex",
-              alignItems: "center",
-              gap: "8px",
-              fontSize: "12px",
-              fontFamily: "var(--font-dm-mono)",
-              color: "var(--accent)",
-              border: "0.5px solid var(--accent-dim)",
-              padding: "8px 14px",
-              borderRadius: "4px",
-              textDecoration: "none",
-            }}
+            className="inline-flex items-center gap-2 text-[12px] font-mono text-(--accent) [border:0.5px_solid_var(--accent-dim)] px-[14px] py-2 rounded-[4px] no-underline"
           >
             View résumé <span>↗</span>
           </a>
-          <div style={{ display: "flex", gap: "12px", alignItems: "center" }}>
+          <div className="flex gap-3 items-center">
             {[
               { label: "GH", href: social.github, aria: "GitHub" },
               { label: "LI", href: social.linkedin, aria: "LinkedIn" },
@@ -123,21 +77,7 @@ export function MobileNav() {
                 aria-label={aria}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="social-icon"
-                style={{
-                  width: "34px",
-                  height: "34px",
-                  borderRadius: "50%",
-                  border: "0.5px solid var(--border)",
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "center",
-                  color: "var(--text-muted)",
-                  fontSize: "11px",
-                  fontFamily: "var(--font-dm-mono)",
-                  textDecoration: "none",
-                  transition: "border-color 0.2s, color 0.2s, transform 0.2s",
-                }}
+                className="w-[34px] h-[34px] rounded-full [border:0.5px_solid_var(--border)] flex items-center justify-center text-(--text-muted) text-[11px] font-mono no-underline transition-[border-color,color,transform] duration-200 hover:border-(--accent) hover:text-(--accent) hover:-translate-y-0.5"
               >
                 {label}
               </a>
