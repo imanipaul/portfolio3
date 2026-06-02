@@ -29,7 +29,7 @@ export const navLinks = [
 export const experience: ExperienceConfig[] = [
   {
     title: "Software Engineer · Nike PME",
-    years: "2024 — 2025",
+    years: "2024 — 2026",
     metric: "Nike.net order orchestration · B2B wholesale platform",
     description:
       "Authored micro-frontend order management tools for Nike's wholesale B2B platform. Delivered several MFEs end-to-end — including drag-and-drop reordering, coupon validation, Redux Toolkit state management, and sales-rep partner ID flows.",
