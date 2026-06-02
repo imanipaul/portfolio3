@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { DM_Sans, DM_Mono } from "next/font/google";
 import { cookies } from "next/headers";
 import "./globals.css";
-import { MobileNav } from "@/components/MobileNav";
+import { MobileHero } from "@/components/MobileHero";
 import { SidebarWrapper } from "@/components/SidebarWrapper";
 import { Header } from "@/components/Header";
 import { Nav } from "@/components/Nav";
@@ -36,7 +36,7 @@ export default async function RootLayout({
   return (
     <html lang="en" data-theme={theme}>
       <body className={`${dmSans.variable} ${dmMono.variable} antialiased`}>
-        <MobileNav />
+        <MobileHero />
         <div className="flex min-h-[calc(100vh-41px)] max-w-[1100px] mx-auto">
           <SidebarWrapper>
             <div>

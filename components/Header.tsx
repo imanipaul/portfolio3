@@ -61,7 +61,8 @@ export function Header() {
         variants={item}
         className="text-[13px] leading-[1.75] text-(--text-secondary) max-w-[200px] mb-9 transition-[color] duration-300"
       >
-        I like hard frontend problems and building the right solutions.
+        7+ years of experience building the right solutions to hard frontend
+        problems, across consumer and B2B products.
       </motion.div>
     </motion.div>
   );
