@@ -1,36 +1,76 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# imanipaul.com
 
-## Getting Started
+Personal portfolio site for Imani Paul, software engineer based in New York.
 
-First, run the development server:
+**Live site:** [imanipaul.com](https://imanipaul.com)
+
+---
+
+## Stack
+
+|            |                                                 |
+| ---------- | ----------------------------------------------- |
+| Framework  | [Next.js 14](https://nextjs.org/) (App Router)  |
+| Styling    | [Tailwind CSS](https://tailwindcss.com/)        |
+| Animations | [Framer Motion](https://www.framer.com/motion/) |
+| Language   | TypeScript                                      |
+| Deployment | [Vercel](https://vercel.com/)                   |
+
+---
+
+## Features
+
+- Dark and light mode with persistent theme toggle
+- Scroll-triggered fade-up animations and staggered entrance sequences
+- Sticky sidebar with active section tracking
+- Fully responsive — dedicated mobile hero layout below 768px
+- `/resume` route rendering a full-page PDF viewer
+- Accessible color contrast across both themes
+
+---
+
+## Running locally
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000).
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+---
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Project structure
 
-## Learn More
+```
+app/
+  page.tsx          # Main single-page portfolio
+  layout.tsx        # Root layout, metadata, fonts
+  resume/
+    page.tsx        # /resume PDF viewer route
+  icon.svg          # Favicon
+public/
+  resume.pdf        # Resume file
+components/
+  Sidebar.tsx
+  MobileHero.tsx
+  Experience.tsx
+  Projects.tsx
+  Contact.tsx
+```
 
-To learn more about Next.js, take a look at the following resources:
+---
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Inspiration
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Layout inspired by [brittanychiang.com](https://brittanychiang.com). Design, content, color palette, and implementation are my own.
 
-## Deploy on Vercel
+---
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## License
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+The code in this repo is open source and available under the [MIT License](LICENSE). The content — writing, project descriptions, and personal information — is not licensed for reuse.
+
+```
+
+```
