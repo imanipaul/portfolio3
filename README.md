@@ -70,7 +70,3 @@ Layout inspired by [brittanychiang.com](https://brittanychiang.com). Design, con
 ## License
 
 The code in this repo is open source and available under the [MIT License](LICENSE). The content — writing, project descriptions, and personal information — is not licensed for reuse.
-
-```
-
-```
