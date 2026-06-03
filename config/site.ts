@@ -92,12 +92,12 @@ export const clientWork: ProjectConfig[] = [
 
 export const projects: ProjectConfig[] = [
   {
-    title: "Forme Storefront",
+    title: "Shoppe Storefront",
     description:
-      "A fully designed consumer e-commerce storefront — homepage with featured product hero, filterable product grid, product detail page with size/color selectors, and collection pages. Built to mirror production-grade shopping UX.",
+      "A fully designed consumer e-commerce storefront. Homepage with featured product hero, filterable product grid, product detail page with size/color selectors, and collection pages. Built to mirror production-grade shopping UX.",
     tech: ["Next.js", "React", "TypeScript", "CSS Modules", "Vercel"],
     emoji: "🛍️",
-    link: "#",
+    link: "https://storefront-xi-tan.vercel.app/",
     featured: true,
     featuredBadge: "⭐ Featured · Live demo ↗",
   },
