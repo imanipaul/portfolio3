@@ -107,7 +107,7 @@ export const projects: ProjectConfig[] = [
       "Personal listening habit dashboard built on the Last.fm API. Surfaces top artists, albums, and tracks across five time ranges with a client-side trend chart derived from scrobble history — no backend required.",
     tech: ["React 18", "Chart.js", "Last.fm API", "CSS Custom Props"],
     emoji: "🎵",
-    link: "#",
+    link: "https://music-stats-xi.vercel.app/",
   },
   {
     title: "Speed Type",
