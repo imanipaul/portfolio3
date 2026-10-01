@@ -68,9 +68,6 @@ export default function Home() {
 
       {/* CLIENT WORK */}
       <Section id="work" title="Client work">
-        <div className="text-[10px] font-mono text-(--accent) tracking-[0.08em] uppercase [border:0.5px_solid_var(--accent-dim)] px-2 py-[2px] rounded-[20px] inline-block mb-3">
-          Featured
-        </div>
         <FadeUpGroup>
           {clientWork.map((proj) => (
             <FadeUp key={proj.title}>

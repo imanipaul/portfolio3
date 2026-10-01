@@ -1,12 +1,56 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { navLinks } from "@/config/site";
+
+// A section becomes active once its top crosses this fraction of the viewport
+const ACTIVATION_OFFSET = 0.3;
 
 export function Nav() {
   const [active, setActive] = useState("#about");
   const [hovered, setHovered] = useState<string | null>(null);
+
+  useEffect(() => {
+    const sections = navLinks
+      .map(({ href }) => document.querySelector<HTMLElement>(href))
+      .filter((el): el is HTMLElement => el !== null);
+    if (sections.length === 0) return;
+
+    let frame = 0;
+    const update = () => {
+      frame = 0;
+      const atBottom =
+        window.innerHeight + window.scrollY >=
+        document.documentElement.scrollHeight - 2;
+
+      // Short final sections may never reach the activation line, so pin to
+      // the last one when the page is fully scrolled
+      let current = sections[0];
+      if (atBottom) {
+        current = sections[sections.length - 1];
+      } else {
+        const line = window.innerHeight * ACTIVATION_OFFSET;
+        for (const section of sections) {
+          if (section.getBoundingClientRect().top <= line) current = section;
+        }
+      }
+      setActive(`#${current.id}`);
+    };
+
+    const onScroll = () => {
+      if (!frame) frame = requestAnimationFrame(update);
+    };
+
+    update();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    window.addEventListener("resize", onScroll);
+    return () => {
+      window.removeEventListener("scroll", onScroll);
+      window.removeEventListener("resize", onScroll);
+      if (frame) cancelAnimationFrame(frame);
+    };
+  }, []);
 
   return (
     <motion.nav
