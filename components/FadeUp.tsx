@@ -2,10 +2,10 @@
 
 import { motion } from "framer-motion";
 
-// Position only — animating opacity lets Lighthouse sample text mid-fade at low contrast
 const variants = {
-  hidden: { y: 24 },
+  hidden: { opacity: 0, y: 24 },
   visible: {
+    opacity: 1,
     y: 0,
     transition: { duration: 0.55, ease: "easeOut" as const },
   },
@@ -19,7 +19,7 @@ export function FadeUp({
   className?: string;
 }) {
   return (
-    <motion.div className={`fade-up ${className}`} variants={variants}>
+    <motion.div className={className} variants={variants}>
       {children}
     </motion.div>
   );

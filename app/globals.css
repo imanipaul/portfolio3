@@ -62,10 +62,6 @@ body {
   transition: background 0.3s ease, color 0.3s ease;
 }
 
-@media (prefers-reduced-motion: reduce) {
-  .fade-up { opacity: 1 !important; transform: none !important; transition: none !important; }
-}
-
 :focus-visible {
   outline: 2px solid var(--accent);
   outline-offset: 3px;
