@@ -21,7 +21,7 @@ export function ThemeToggle({ compact = false }: { compact: boolean }) {
   const isDark = theme === "dark";
 
   const optionBase = `text-[11px] font-mono text-[var(--text-muted)] rounded-[16px] transition-all duration-200 cursor-pointer flex items-center gap-[5px]${compact ? " px-2 py-[2px]" : " px-[10px] py-[3px]"}`;
-  const activeOption = "bg-[var(--accent)] !text-white";
+  const activeOption = "bg-[var(--accent)] !text-(--on-accent)";
 
   return (
     <div

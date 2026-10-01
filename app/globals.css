@@ -18,6 +18,7 @@
   --toggle-bg:     #16112a;
   --toggle-border: #2f2350;
   --tag-hover-bg:  var(--bg-hover);
+  --on-accent:     #0e0b18;
 }
 
 /* ── LIGHT THEME ── */
@@ -29,15 +30,16 @@
   --border-mid:    #c4b8e8;
   --text-primary:  #1a1030;
   --text-secondary:#4a3f6b;
-  --text-muted:    #6e6390;
+  --text-muted:    #675c88;
   --accent:        #7c3aed;
   --accent-dim:    rgba(124,58,237,0.1);
   --accent-tag-bg: #ede9fc;
-  --green:         #16a34a;
+  --green:         #15803d;
   --shadow:        rgba(100,80,180,0.08);
   --toggle-bg:     #f0ecfa;
   --toggle-border: #ddd6f0;
   --tag-hover-bg:  var(--border);
+  --on-accent:     #faf9fd;
 }
 
 @theme inline {
@@ -58,6 +60,10 @@ body {
   min-height: 100vh;
   overflow-x: hidden;
   transition: background 0.3s ease, color 0.3s ease;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .fade-up { opacity: 1 !important; transform: none !important; transition: none !important; }
 }
 
 :focus-visible {
